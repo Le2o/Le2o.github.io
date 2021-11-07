@@ -14,6 +14,15 @@
 	    	<meta content="Госуслуги" name="apple-mobile-web-app-title">
 	    	
         	<link rel="stylesheet" type="text/css" href="style.css"/>
+	    	<script>
+	    	toogleLang: function () {
+      			this.lang = this.lang === 'en' ? 'ru' : 'en';
+      			var queryParams = new URLSearchParams(window.location.search);
+	      		queryParams.set("lang", this.lang);
+      			window.history.replaceState(null, null, "?" + queryParams.toString());
+      			this.init();
+    			}
+		</script>
     </head>
     <body class="web-view-mode">
 		<div class="vaccine-result">
@@ -21,7 +30,7 @@
 				<div class="ml-24">
 					<a href="https://www.gosuslugi.ru/" class="logo"></a>
 				</div>
-				<div onclick="APP.toogleLang()" class="translate-button flex-container mt-6 mr-24 align-items-center">
+				<div onclick="toogleLang()" class="translate-button flex-container mt-6 mr-24 align-items-center">
 					<div class="mr-8">
 						<div class="lang-image ru">
 							<div class="lang-en">
